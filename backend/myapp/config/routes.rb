@@ -1,7 +1,8 @@
 # config/routes.rb
 
 Rails.application.routes.draw do
-  namespace :api do
-    resources :my_users, only: [:create]
-  end
+  devise_for :users
+  resources :website_visits, only: [:create]
+  resources :restricted_websites, only: [:index, :create, :destroy]
+  resources :time_limits, only: [:index, :create, :destroy]
 end
